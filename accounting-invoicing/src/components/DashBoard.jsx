@@ -5,17 +5,35 @@ import Invoices from "./pages/Invoices";
 import Clients from "./pages/Clients";
 import Payments from "./pages/Payments";
 import Expenses from "./pages/Expenses";
+import DashboardHomeCards from "./DashboardHomeCards";
+import AddInvoices from "./pages/addInvoice/AddInvoices";
+import InvoiceDetails from "./pages/InvoiceBillGenerate/InvoiceDetails";
+import InvoiceUserDetails from "../components/pages/InvoiceBillGenerate/InvoiceUserDetails";
+import PaymentSummary from "./pages/PaymentSummary";
+import SaleReports from "./pages/SaleReports";
+import AddProduct from "./pages/AddProduct";
+import ProductList from "./pages/ProductList";
+import CompanyDetails from "./pages/CompanyDetails";
+import ChangePassword from "./pages/ChangePassword";
 
 function DashBoard() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showComponent, setShowComponent] = useState("");
   const componentMap = {
-    Invoices: <Invoices />,
+    Invoices: <Invoices setShowComponent={setShowComponent} />,
     Home: <DashboardHome />,
     Clients: <Clients />,
     Payments:<Payments/>, 
     Expenses:<Expenses/>,
     
+    AddInvoices: <AddInvoices />,
+    InvoiceUserDetails: <InvoiceUserDetails />,
+    PaymentSummary: <PaymentSummary />,
+    SaleReports: <SaleReports />,
+    AddProduct: <AddProduct />,
+    ProductList: <ProductList />,
+    CompanyDetails: <CompanyDetails />,
+    ChangePassword: <ChangePassword />,
   };
 
   return (
@@ -52,6 +70,7 @@ function DashBoard() {
   </div>
 </>
 
+      
     </>
   );
 }

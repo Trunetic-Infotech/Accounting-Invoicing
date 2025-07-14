@@ -86,11 +86,21 @@ const Sidebar = ({ setShowComponent, showSidebar, setShowSidebar }) => {
               >
                 Invoice
               </div>
-              <div className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow">
-                Add Invoice Details
-              </div>
-              <div className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow">
+              <div
+                onClick={() => {
+                  setShowComponent("AddInvoices");
+                }}
+                className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow"
+              >
                 Add New Invoice
+              </div>
+              <div
+                onClick={() => {
+                  setShowComponent("InvoiceUserDetails");
+                }}
+                className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow"
+              >
+                Invoice User Details
               </div>
             </div>
           )}
@@ -139,10 +149,20 @@ const Sidebar = ({ setShowComponent, showSidebar, setShowSidebar }) => {
           </div>
           {reportsDropdownOpen && (
             <div className="ml-10 mt-2 flex flex-col gap-2 text-sm text-white">
-              <div className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow">
+              <div
+                onClick={() => {
+                  setShowComponent("PaymentSummary");
+                }}
+                className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow"
+              >
                 Payment Summary
               </div>
-              <div className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow">
+              <div
+                onClick={() => {
+                  setShowComponent("SaleReports");
+                }}
+                className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow"
+              >
                 Sales Reports
               </div>
             </div>
@@ -167,10 +187,20 @@ const Sidebar = ({ setShowComponent, showSidebar, setShowSidebar }) => {
           </div>
           {productDropdownOpen && (
             <div className="ml-10 mt-2 flex flex-col gap-2 text-sm text-white">
-              <div className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow">
+              <div
+                onClick={() => {
+                  setShowComponent("AddProduct");
+                }}
+                className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow"
+              >
                 Add Products
               </div>
-              <div className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow">
+              <div
+                onClick={() => {
+                  setShowComponent("ProductList");
+                }}
+                className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow"
+              >
                 Product List
               </div>
             </div>
@@ -193,8 +223,21 @@ const Sidebar = ({ setShowComponent, showSidebar, setShowSidebar }) => {
           </div>
           {settingDropdownOpen && (
             <div className="ml-10 mt-2 flex flex-col gap-2 text-sm text-white">
-              <div className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow">
+              <div
+                onClick={() => {
+                  setShowComponent("CompanyDetails");
+                }}
+                className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow"
+              >
                 Company Details
+              </div>
+              <div
+                onClick={() => {
+                  setShowComponent("ChangePassword");
+                }}
+                className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow"
+              >
+                Change Password
               </div>
               <div className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow">
                 Logout
