@@ -11,7 +11,7 @@ import { SiExpensify } from "react-icons/si";
 import { BiSolidReport } from "react-icons/bi";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-const Sidebar = ({ setShowComponent }) => {
+const Sidebar = ({ setShowComponent, showSidebar, setShowSidebar }) => {
   const [invoiceDropdownOpen, setInvoiceDropdownOpen] = useState(false);
   const [reportsDropdownOpen, setReportsDropdownOpen] = useState(false);
   const [productDropdownOpen, setProductDropdownOpen] = useState(false);
@@ -39,7 +39,8 @@ const Sidebar = ({ setShowComponent }) => {
   };
 
   return (
-    <div className="min-h-screen w-72 p-6 bg-gradient-to-b from-blue-600 via-purple-600 to-pink-500 text-white shadow-2xl transition-all duration-500 ease-in-out">
+    <div className={`fixed md:static top-0 left-0 z-50 w-72 min-h-screen p-6 bg-gradient-to-b from-blue-600 via-purple-600 to-pink-500 text-white shadow-2xl transition-transform duration-300 ease-in-out ${showSidebar ? "translate-x-0" : "-translate-x-full"
+      } md:translate-x-0`}>
       {/* Logo/Header */}
       <div className="flex items-center gap-3 mb-10 animate-fade-in">
         <MdDashboard className="text-4xl text-white drop-shadow-lg" />
@@ -95,36 +96,30 @@ const Sidebar = ({ setShowComponent }) => {
           )}
         </div>
 
-        <SidebarItem icon={<FaUser />} label="Clients" />
+        <SidebarItem
+          onClick={() => {
+            setShowComponent("Clients");
+          }}
+          icon={<FaUser />}
+          label="Clients"
+        />
 
         {/* Expense Dropdown */}
-        <div>
-          <div
-            onClick={toggleExpenseDropdown}
-            className="flex items-center justify-between px-5 py-3 rounded-xl backdrop-blur-sm bg-white/5 hover:bg-white/10 hover:scale-[1.02] transition-all duration-300 cursor-pointer shadow hover:shadow-lg"
-          >
-            <div className="flex items-center gap-4">
-              <span className="text-xl">
-                <SiExpensify />
-              </span>
-              <span className="text-base font-medium tracking-wide">
-                Expenses
-              </span>
-            </div>
-            {expenseDropdownOpen ? <FaChevronUp /> : <FaChevronDown />}
-          </div>
-          {expenseDropdownOpen && (
-            <div className="ml-10 mt-2 flex flex-col gap-2 text-sm text-white">
-              <div className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow">
-                Add Expenses
-              </div>
-              <div className="px-4 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 text-white cursor-pointer hover:scale-105 transition-all duration-300 shadow">
-                Expense Reports
-              </div>
-            </div>
-          )}
-        </div>
-        <SidebarItem icon={<MdPayment />} label="Payments" />
+
+        <SidebarItem
+          onClick={() => {
+            setShowComponent("Expenses");
+          }}
+          icon={<SiExpensify />}
+          label="Expenses"
+        />
+        <SidebarItem
+          onClick={() => {
+            setShowComponent("Payments");
+          }}
+          icon={<MdPayment />}
+          label="Payments"
+        />
 
         {/* Reports Dropdown */}
         <div>
